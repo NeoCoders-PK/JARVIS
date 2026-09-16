@@ -1,0 +1,5 @@
+{
+  "api_key": "PASTE_YOUR_GROQ_API_KEY_HERE",
+  "model": "openai/gpt-oss-120b",
+  "pexels_api_key": "OPTIONAL_PASTE_YOUR_FREE_PEXELS_KEY_HERE"
+}

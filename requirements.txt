@@ -1,0 +1,12 @@
+requests
+pyttsx3
+SpeechRecognition
+sounddevice
+numpy
+pywebview
+python-docx
+openpyxl
+pypdf
+reportlab
+python-pptx
+lxml
