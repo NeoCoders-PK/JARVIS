@@ -24,6 +24,10 @@ Open a terminal (Command Prompt / PowerShell) in this folder and run:
 pip install requests pyttsx3 SpeechRecognition pywebview
 ```
 
+```
+pip install -r requirements.txt
+```
+
 The microphone (voice input) feature additionally needs `sounddevice` and
 `numpy`:
 
