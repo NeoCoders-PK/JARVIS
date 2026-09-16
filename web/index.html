@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>J.A.R.V.I.S.</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <div id="hud-wrap" title="Click to interrupt JARVIS">
+    <svg id="hud" viewBox="0 0 480 480">
+      <defs>
+        <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="7" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="35%" stop-color="#00ffcc"/>
+          <stop offset="100%" stop-color="#014b42" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- outer tick ring -->
+      <g id="ring-outer" class="ring">
+        <circle cx="240" cy="240" r="220" fill="none" stroke="#0b3b36" stroke-width="1"/>
+      </g>
+
+      <!-- mid segmented arc ring -->
+      <g id="ring-mid" class="ring" filter="url(#glow)">
+        <circle cx="240" cy="240" r="188" fill="none" stroke="#00d9b5"
+                stroke-width="4" stroke-dasharray="55 20" stroke-linecap="round"/>
+      </g>
+
+      <!-- inner tick ring -->
+      <g id="ring-inner" class="ring" filter="url(#glow)">
+        <circle cx="240" cy="240" r="148" fill="none" stroke="#00ffcc"
+                stroke-width="2" stroke-dasharray="4 8" stroke-linecap="round"/>
+      </g>
+
+      <circle cx="240" cy="240" r="165" fill="none" stroke="#0b3b36" stroke-width="1"/>
+
+      <!-- pulsing core -->
+      <circle id="core" cx="240" cy="240" r="44" fill="url(#coreGrad)" filter="url(#glow)"/>
+      <circle id="core-dot" cx="240" cy="240" r="6" fill="#ffffff" filter="url(#glow)"/>
+    </svg>
+    <div id="status">STANDBY</div>
+  </div>
+
+  <div id="chat-log"></div>
+
+  <div id="input-bar">
+    <input id="text-input" type="text" placeholder="Talk to JARVIS...">
+    <button id="mic-btn" title="Push to talk">&#127908;</button>
+    <button id="send-btn">Send</button>
+  </div>
+
+</div>
+
+<div id="confirm-overlay" class="hidden">
+  <div id="confirm-box">
+    <div id="confirm-title">JARVIS wants to do something</div>
+    <div id="confirm-text"></div>
+    <div id="confirm-buttons">
+      <button id="confirm-no">No</button>
+      <button id="confirm-yes">Yes</button>
+    </div>
+  </div>
+</div>
+
+<div id="apikey-overlay" class="hidden">
+  <div id="confirm-box">
+    <div id="confirm-title">Groq API Key Needed</div>
+    <div id="confirm-text">
+      Get a free key (no card needed) at
+      <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a>,
+      then paste it below.
+    </div>
+    <input id="apikey-input" type="password" placeholder="gsk_..." autocomplete="off">
+    <div id="confirm-buttons">
+      <button id="apikey-save">Save &amp; Continue</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
