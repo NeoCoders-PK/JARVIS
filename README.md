@@ -23,7 +23,7 @@ Open a terminal (Command Prompt / PowerShell) in this folder and run:
 ```
 pip install requests pyttsx3 SpeechRecognition pywebview
 ```
-
+Click on top bar of the folder in windows explorer and type cmd and run:
 ```
 pip install -r requirements.txt
 ```
